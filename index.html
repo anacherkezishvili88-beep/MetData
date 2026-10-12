@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Met Collection Atlas</title>
+
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <header class="topbar">
+    <a class="brand" href="./index.html">
+      The Met <span> Atlas </span>
+    </a>
+
+  </header>
+
+  
+  <main>
+
+    <section class="intro">
+      <p class="eyebrow">THE METROPOLITAN MUSEUM OF ART</p>
+
+      <h1>The age profile<br>of each department of The Met</h1>
+
+      <p class="subtitle">
+        Explore when objects across different departments were created, and discover
+        how each collection tells a different story of time.
+      </p>
+    </section>
+
+
+    <!-- Department selection -->
+
+    <section class="department-section">
+      <div class="section-heading">
+        <h2>Explore the collections</h2>
+        <p>Select up to four departments to compare.</p>
+      </div>
+
+      <div
+        class="selector-list"
+        id="departmentButtons"
+        aria-label="Choose up to four departments"
+      ></div>
+    </section>
+
+
+    <!-- Radar chart -->
+
+    <section class="chart-card">
+
+      <div class="chart-top">
+        <div>
+          <p class="chart-kicker">OBJECT CREATION DATES</p>
+          <h2>Mapping time</h2>
+        </div>
+
+        <p class="selection-status" id="selectionStatus" aria-live="polite">
+          Loading data…
+        </p>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas
+          id="radarChart"
+          role="img"
+          aria-label="Interactive radar chart comparing the creation dates of objects across museum departments"
+        ></canvas>
+      </div>
+
+      <div class="chart-bottom">
+        <span class="chart-key">
+          <span class="key-dot"></span>
+          Percentage of dated objects
+        </span>
+
+        <span class="chart-hint">
+          Hover over a point to explore the data
+        </span>
+      </div>
+
+    </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "met-data",
+  "version": "1.0.0",
+  "description": "Met Museum collection date processing for a Chart.js radar chart",
+  "type": "module",
+  "scripts": {
+    "convert": "node csvConvert.mjs",
+    "process": "node script.mjs",
+    "build-data": "npm run convert && npm run process"
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.3"
+  }
+}

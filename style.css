@@ -1,0 +1,473 @@
+
+/* colors */
+
+:root {
+  --bg: #F4F0E5;
+  --paper: #FBF9F3;
+
+  --ink: #e4012a;
+  --muted: #77736A;
+  --soft-muted: #9A9386;
+
+  --line: #DDD5C6;
+  --line-dark: #C8BFAF;
+
+  --amber: #E9B94F;
+  --butter: #F5D98B;
+
+  --lavender: #B5A0BE;
+  --deep-lavender: #361465;
+
+  --sage: #A6B99B;
+  --teal: #79A7A8;
+  --blue: #819DBD;
+
+  --taupe: #A99F91;
+  --terracotta: #C58D83;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1.6;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--lavender);
+  color: var(--ink);
+}
+
+
+/* header */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 23px clamp(22px, 5vw, 72px);
+
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+}
+
+.brand span {
+  color: var(--deep-lavender);
+}
+
+.topnote {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-align: right;
+}
+
+
+/* teh full home layout */
+
+main {
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto;
+
+  padding:
+    62px
+    clamp(22px, 7vw, 100px)
+    80px;
+}
+
+
+/* intro */
+
+.intro {
+  max-width: 850px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+
+  color: var(--deep-lavender);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+}
+
+h1 {
+  margin: 0 0 24px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 500;
+  line-height: 1.06;
+
+  letter-spacing: -2.4px;
+}
+
+.subtitle {
+  max-width: 720px;
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.85;
+}
+
+
+/* departments */
+
+.department-section {
+  margin-bottom: 24px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  gap: 10px 24px;
+
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.section-heading p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* Container for dynamically generated buttons */
+
+.selector-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 0;
+}
+
+
+/* Individual department button */
+
+.dept-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  min-height: 42px;
+
+  padding: 9px 15px;
+
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+
+  background: transparent;
+  color: #666158;
+
+  font-size: 13px;
+  line-height: 1.3;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.dept-option:hover:not(:disabled) {
+  border-color: var(--deep-lavender);
+  background: #EAE3ED;
+}
+
+.dept-option.selected {
+  border-color: var(--deep-lavender);
+  background: var(--paper);
+  color: var(--ink);
+
+  font-weight: 700;
+}
+
+.dept-option:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.dept-option:focus-visible {
+  outline: 2px solid var(--deep-lavender);
+  outline-offset: 3px;
+}
+
+
+/* Colored department indicator */
+
+.dot {
+  display: inline-block;
+
+  width: 11px;
+  height: 11px;
+
+  flex: 0 0 11px;
+
+  border-radius: 50%;
+}
+
+
+/* chart card */
+
+.chart-card {
+  padding: clamp(18px, 3vw, 34px);
+
+  border: 1px solid var(--line);
+  border-radius: 3px;
+
+  background: var(--paper);
+
+  box-shadow: 0 8px 30px rgba(81, 68, 45, 0.035);
+}
+
+
+/* Chart heading */
+
+.chart-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-bottom: 8px;
+}
+
+.chart-kicker {
+  margin: 0 0 6px;
+
+  color: var(--deep-lavender);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.chart-top h2 {
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.selection-status {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 12px;
+}
+
+
+/* Chart dimensions */
+
+.chart-wrap {
+  position: relative;
+
+  width: 100%;
+  height: min(67vw, 720px);
+
+  min-height: 410px;
+  max-height: 720px;
+}
+
+
+/* Information below the chart */
+
+.chart-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--line);
+}
+
+.chart-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.key-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: var(--deep-lavender);
+}
+
+.chart-hint {
+  color: var(--soft-muted);
+  font-size: 11px;
+}
+
+
+/* responsive table */
+
+@media (max-width: 900px) {
+
+  main {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+
+  .chart-wrap {
+    height: 580px;
+    min-height: 480px;
+  }
+
+}
+
+
+/* responsive mobile */
+
+@media (max-width: 600px) {
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 18px 22px;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .topnote {
+    font-size: 9px;
+    text-align: left;
+  }
+
+  main {
+    padding: 42px 18px 54px;
+  }
+
+  .intro {
+    margin-bottom: 36px;
+  }
+
+  h1 {
+    font-size: clamp(39px, 11vw, 56px);
+    letter-spacing: -1.5px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .section-heading h2 {
+    font-size: 21px;
+  }
+
+  .selector-list {
+    gap: 8px;
+  }
+
+  .dept-option {
+    min-height: 38px;
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .dept-option.selected {
+    padding: 7px 10px;
+  }
+
+  .chart-card {
+    padding: 18px 12px 16px;
+  }
+
+  .chart-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chart-top h2 {
+    font-size: 27px;
+  }
+
+  .chart-wrap {
+    height: 460px;
+    min-height: 460px;
+  }
+
+  .chart-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
